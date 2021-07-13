@@ -17,8 +17,5 @@ This is a troubleshooting container by Alpine, GoTTY and a lot of troubleshootin
 - iftop
 - openssh-client
 
-#### Kubernetes
-- kubectl
-
 #### Others
 - jq
