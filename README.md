@@ -21,4 +21,5 @@ This is a troubleshooting container by Alpine, GoTTY and a lot of troubleshootin
 - kubectl
 
 #### Others
+- bash
 - jq
