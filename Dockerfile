@@ -1,13 +1,13 @@
-FROM alpine:3.14
+FROM alpine:3.17
 LABEL MAINTAINER=Yinlin.Li<Yinlin.Li@suse.com>
 COPY ./gotty /usr/bin/
-COPY ./support/describe-all-nodes-for-all-clusters.sh /
-RUN apk add bash libc6-compat busybox-extras openssh-client jq bind-tools curl tcpdump iproute2 iperf iftop --no-cache \
+RUN apk add bash libc6-compat busybox-extras openssh-client jq bind-tools curl iproute2 ansible \
     && rm -rf /var/cache/* \
-    && curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.20.8/bin/linux/amd64/kubectl \
-    && curl -fL "https://liyinlin-generic.pkg.coding.net/rancher/support/getNodeinfo_linux_amd64?version=latest" -o getNodeinfo_linux_amd64 \
-    && chmod u+x kubectl describe-all-nodes-for-all-clusters.sh getNodeinfo_linux_amd64 \
+    && STABLE_VERSION=$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)
+    && curl -LO https://storage.googleapis.com/kubernetes-release/release/$STABLE_VERSION/bin/linux/amd64/kubectl \
     && mv kubectl /usr/bin/ \
-    && mkdir ~/.kube
+    && mkdir ~/.kube mkdir -p /etc/ansible \
+    && echo "localhost" >/etc/ansible/hosts \
+    && ssh-keygen -t rsa -P "" -f ~/.ssh/id_rsa
 EXPOSE 80
 ENTRYPOINT ["gotty","-p","80","-w","sh"]
