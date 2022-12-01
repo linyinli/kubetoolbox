@@ -17,14 +17,10 @@ This is a troubleshooting container by Alpine, GoTTY and a lot of troubleshootin
 - iftop
 - openssh-client
 
-<<<<<<< HEAD
 #### Kubernetes
 - kubectl
 
 #### Others
 - ansible
 - bash
-=======
-#### Others
->>>>>>> e1d8850218003a23701fdb43bea946853164e1ac
 - jq
