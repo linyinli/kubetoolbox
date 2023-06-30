@@ -3,7 +3,7 @@
 This is a troubleshooting container by Alpine, GoTTY and a lot of troubleshooting tools.
 
 ### Installed tools
-#### webshell
+#### Webshell
 - GoTTY
 
 #### Network
