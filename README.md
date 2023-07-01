@@ -17,6 +17,11 @@ This is a troubleshooting container by Alpine, GoTTY and a lot of troubleshootin
 - iftop
 - openssh-client
 
+#### IaC
+- Terraform
+- Ansible
+- Seal
+
 #### Others
 - bash
 - jq
